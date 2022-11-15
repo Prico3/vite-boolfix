@@ -27,13 +27,16 @@ export default {
 
 <template>
     <div>
-        <h3>titolo: {{ getTitle }}</h3>
+        <h3>Titolo: {{ getTitle }}</h3>
         <p>Titolo originale: {{ getOriginalTitle }}</p>
         <div class="language">
             <img v-if="availableFlags.includes(item.original_language)" :src="imgUrl(item.original_language)" alt="">
             <p>Lingua originale: {{ item.original_language }}</p>
         </div>
-        <p>Voto: {{ item.vote_average }}</p>
+        <div>
+            <p>Voto: {{ item.vote_average }}</p>
+            <i class="fa-solid fa-star"></i>
+        </div>
     </div>
 </template>
 
