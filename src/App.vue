@@ -1,20 +1,27 @@
 <script>
 import { store } from "./store";
 import axios from "axios";
+
+// APP
+import SearchBarVue from "./components/SearchBar.vue";
+
 export default {
+  components: {
+    SearchBarVue
+  },
   data() {
     return {
       store
     }
   },
-  created() {
-    this.getMovies();
-  },
   methods: {
+    search() {
+      this.getMovies();
+    },
     getMovies() {
       const paramsObj = {
         api_key: this.store.apiKey,
-        query: "ciao"
+        query: this.store.searchKey,
       }
       axios
         .get(`${this.store.apiURL}/movie`, {
@@ -28,6 +35,7 @@ export default {
 </script>
 
 <template>
+  <SearchBarVue @doTheSearch="search" />
 </template>
 
 <style lang="scss" >
