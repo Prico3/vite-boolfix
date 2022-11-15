@@ -19,6 +19,7 @@ export default {
   methods: {
     search() {
       this.getMovies();
+      this.getSeries();
     },
     getMovies() {
       const paramsObj = {
@@ -31,6 +32,19 @@ export default {
         })
         .then((resp) => {
           this.store.movies = resp.data.results;
+        })
+    },
+    getSeries() {
+      const paramsObj = {
+        api_key: this.store.apiKey,
+        query: this.store.searchKey,
+      }
+      axios
+        .get(`${this.store.apiURL}/tv`, {
+          params: paramsObj
+        })
+        .then((resp) => {
+          this.store.series = resp.data.results;
         })
     }
   },

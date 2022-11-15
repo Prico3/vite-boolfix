@@ -15,9 +15,23 @@ export default {
 
 <template>
     <main>
-        <div>
-            <AppCardVue v-for="item in store.movies" :key="item.id" :item="item" />
-        </div>
+        <section>
+
+            <div>
+                <h2>Movies</h2>
+                <AppCardVue v-for="item in store.movies" :key="item.id" :item="item" />
+            </div>
+
+        </section>
+
+        <section>
+
+            <div>
+                <h2>Serie TV</h2>
+                <AppCardVue v-for="item in store.series" :key="item.id" :item="item" />
+            </div>
+
+        </section>
     </main>
 </template>
 
