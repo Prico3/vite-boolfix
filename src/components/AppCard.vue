@@ -11,7 +11,7 @@ export default {
     <div>
         <h3>titolo: {{ item.title }}</h3>
         <p>Titolo originale: {{ item.original_title }}</p>
-        <p>Lingua originale: {{ item.orinal_language }}</p>
+        <p>Lingua originale: {{ item.original_language }}</p>
         <p>Voto: {{ item.vote_average }}</p>
     </div>
 </template>
