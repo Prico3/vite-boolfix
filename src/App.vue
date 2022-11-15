@@ -4,10 +4,12 @@ import axios from "axios";
 
 // APP
 import SearchBarVue from "./components/SearchBar.vue";
+import MainAppVue from "./components/MainApp.vue";
 
 export default {
   components: {
-    SearchBarVue
+    SearchBarVue,
+    MainAppVue
   },
   data() {
     return {
@@ -27,7 +29,9 @@ export default {
         .get(`${this.store.apiURL}/movie`, {
           params: paramsObj
         })
-        .then((resp) => console.log(resp))
+        .then((resp) => {
+          this.store.movies = resp.data.results;
+        })
     }
   },
 
@@ -36,6 +40,7 @@ export default {
 
 <template>
   <SearchBarVue @doTheSearch="search" />
+  <MainAppVue />
 </template>
 
 <style lang="scss" >
